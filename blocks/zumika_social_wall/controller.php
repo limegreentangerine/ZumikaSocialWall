@@ -38,7 +38,7 @@ class Controller extends BlockController
         $this->loadHelpers();
     }
 
-    public function edit() 
+    public function edit()
     {
         $this->loadHelpers();
     }
