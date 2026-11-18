@@ -35,20 +35,25 @@ class Controller extends BlockController
 
     public function add()
     {
-        $this->edit();
+        $this->loadHelpers();
     }
 
-    public function edit()
+    public function edit() 
+    {
+        $this->loadHelpers();
+    }
+
+    public function loadHelpers()
     {
         $this->set('result', $this->app->make(Zumika::class)->getFeeds());
         $this->set('layouts', [
             '' => t('As designed in Zumika'),
             'waterfall' => t('Waterfall'),
-            'colony' => t('Grid'),
-            'migration' => t('Carousel'),
-            'canopy' => t('Portrait carousel'),
-            'savannah' => t('List, large'),
-            'trail' => t('List, compact'),
+            'colony' => t('Colony'),
+            'migration' => t('Migration'),
+            'canopy' => t('Canopy'),
+            'savannah' => t('Savannah'),
+            'trail' => t('Trail'),
         ]);
     }
 
@@ -58,7 +63,7 @@ class Controller extends BlockController
      */
     public function registerViewAssets($outputContent = '')
     {
-        $this->addFooterItem('<script async src="' . h(ZumikaEnv::urlOrDefault() . '/embed.js') . '"></script>');
+        $this->addFooterItem(sprintf('<script async src="%s/embed.js"></script>', h(ZumikaEnv::urlOrDefault())));
     }
 
     public function validate($args)

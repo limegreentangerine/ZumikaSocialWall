@@ -8,6 +8,6 @@ class Zumika extends DashboardPageController
 {
     public function view()
     {
-        return $this->buildRedirect('/dashboard/zumika/settings');
+        return $this->buildRedirect('/dashboard/zumika/settings')->send();
     }
 }

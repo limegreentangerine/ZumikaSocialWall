@@ -1,6 +1,6 @@
 {
 	"name": "zumika_social_wall",
-	"version": "2.0.0",
+	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
 	"directories": {
@@ -14,7 +14,7 @@
 		"url": "git+https://github.com/limegreentangerine/ZumikaSocialWall.git"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "Dave Hendy <david@limegreentangerine.co.uk>",
 	"license": "ISC",
 	"type": "commonjs",
 	"bugs": {

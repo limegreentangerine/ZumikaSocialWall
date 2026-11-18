@@ -2,7 +2,6 @@
 
 namespace Concrete\Package\ZumikaSocialWall;
 
-use Concrete\Core\Page\Page;
 use Concrete\Core\Entity\Package;
 use ClassKit\Package\PackageController;
 use ClassKit\Package\Traits\{BlockTrait, PageTrait};
@@ -26,7 +25,7 @@ class Controller extends PackageController
      *
      * @var string
      */
-    protected $pkgVersion = '2.0.0';
+    protected $pkgVersion = '1.0.0';
 
     /**
      * The minimum Concrete version compatible with the package.
@@ -88,12 +87,6 @@ class Controller extends PackageController
     {
         // Add blocks
         $this->autoInstallBlocks($pkg);
-
-        // 1.x kept its settings at /dashboard/system/zumika; that controller no longer exists
-        $legacy = Page::getByPath('/dashboard/system/zumika');
-        if (is_object($legacy) && !$legacy->isError() && (int) $legacy->getPackageID() === (int) $pkg->getPackageID()) {
-            $legacy->delete();
-        }
 
         // dashboard pages
         $this->addSinglePage('/dashboard/zumika', $pkg, t('Zumika'));
